@@ -3,9 +3,6 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { TasksModule } from './tasks/tasks.module';
 
 @Module({
-  providers: [
-    Logger,
-  ],
   imports: [ScheduleModule.forRoot(), TasksModule],
   controllers: [],
 })

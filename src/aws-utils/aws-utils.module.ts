@@ -3,9 +3,6 @@ import { AWSS3UtilsService } from './aws-s3-utils.service';
 
 @Global()
 @Module({
-    providers: [
-        Logger,
-    ],
     imports: [
         AWSS3UtilsService,
     ],

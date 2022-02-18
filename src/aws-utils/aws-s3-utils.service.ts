@@ -1,9 +1,15 @@
-import { Inject, Injectable, Logger, LoggerService } from "@nestjs/common";
+import { Injectable, Logger, LoggerService } from "@nestjs/common";
 import * as S3 from 'aws-sdk/clients/s3';
 import * as csv from 'csvtojson';
 
 @Injectable()
 export class AWSS3UtilsService {
+
+
+    /**
+     * Logger of the class
+     */
+    private readonly logger: LoggerService = new Logger(AWSS3UtilsService.name);
 
     /**
      * S3 configuration
@@ -19,9 +25,7 @@ export class AWSS3UtilsService {
      * Class constructor
      * @param {LoggerService} logger 
      */
-    constructor(
-        @Inject(Logger) private readonly logger: LoggerService,
-    ) {
+    constructor() {
         // TODO: define the AWS env variables
         this.config = {
             region: process.env.AWS_REGION,

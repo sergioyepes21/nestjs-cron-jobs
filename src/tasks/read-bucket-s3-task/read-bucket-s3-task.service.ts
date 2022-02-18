@@ -7,12 +7,16 @@ import { AfterTask } from '../../decorators/after-task.decorator';
 export class ReadBucketS3TaskService {
 
     /**
+     * Logger of the class
+     */
+    private readonly logger: LoggerService = new Logger(ReadBucketS3TaskService.name);
+
+    /**
      * Class constructor
      * @param {LoggerService} logger Logger service 
      * @param {AWSS3UtilsService} awsS3 AWS S3 utils service 
      */
     constructor(
-        @Inject(Logger) private readonly logger: LoggerService,
         @Inject(AWSS3UtilsService) private readonly awsS3: AWSS3UtilsService,
     ) { }
 
